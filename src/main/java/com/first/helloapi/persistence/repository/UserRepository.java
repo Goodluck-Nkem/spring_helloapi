@@ -1,5 +1,6 @@
-package com.first.helloapi;
+package com.first.helloapi.persistence.repository;
 
+import com.first.helloapi.domain.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

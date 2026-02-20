@@ -5,17 +5,15 @@ services:
     image: postgres:18
     container_name: postgres
     environment:
-      POSTGRES_DB: testdb
-      POSTGRES_USER: test
-      POSTGRES_PASSWORD: test
+      POSTGRES_DB: helloapi_db
+      POSTGRES_USER: helloapi_postgres
+      POSTGRES_PASSWORD: helloapi_postgres_1234
     ports:
       - "5432:5432"
 
-  adminer:
-    image: adminer
-    container_name: adminer
-    ports:
-      - "8081:8080"
+    # For testing purpose only, to simulate persistence
+    volumes:
+      - postgres_volume_data:/var/lib/postgresql
 
   app:
     build: .
@@ -24,3 +22,7 @@ services:
       - "8080:8080"
     depends_on:
       - postgres
+
+# For testing purpose only, to simulate persistence
+volumes:
+  postgres_volume_data:

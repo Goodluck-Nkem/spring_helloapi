@@ -1,5 +1,6 @@
-package com.first.helloapi;
+package com.first.helloapi.exception;
 
+import com.first.helloapi.dto.ErrorDTO;
 import lombok.NonNull;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;

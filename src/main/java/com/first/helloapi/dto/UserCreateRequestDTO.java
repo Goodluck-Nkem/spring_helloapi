@@ -1,4 +1,4 @@
-package com.first.helloapi;
+package com.first.helloapi.dto;
 
 import jakarta.validation.constraints.NotBlank;
 

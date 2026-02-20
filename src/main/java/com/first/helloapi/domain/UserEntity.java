@@ -1,4 +1,4 @@
-package com.first.helloapi;
+package com.first.helloapi.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

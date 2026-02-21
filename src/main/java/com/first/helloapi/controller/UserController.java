@@ -1,9 +1,9 @@
 package com.first.helloapi.controller;
 
 import com.first.helloapi.entity.UserEntity;
-import com.first.helloapi.dto.UserCreateRequestDTO;
-import com.first.helloapi.dto.UserCreateResponseDTO;
-import com.first.helloapi.dto.UserFetchResponseDTO;
+import com.first.helloapi.dto.user.UserCreate_RequestDTO;
+import com.first.helloapi.dto.user.UserCreate_ResponseDTO;
+import com.first.helloapi.dto.user.UserFetch_ResponseDTO;
 import com.first.helloapi.mapper.UserMapper;
 import com.first.helloapi.service.UserService;
 import jakarta.validation.Valid;
@@ -22,15 +22,15 @@ public class UserController {
     private final UserMapper userMapper;
 
     @PostMapping
-    public ResponseEntity<UserCreateResponseDTO> create(@Valid @RequestBody UserCreateRequestDTO data) {
+    public ResponseEntity<UserCreate_ResponseDTO> create(@Valid @RequestBody UserCreate_RequestDTO data) {
         UserEntity entity = userService.createUser(data);
         return new ResponseEntity<>(userMapper.toCreateResponseDTO(entity), HttpStatus.CREATED);
     }
 
     @GetMapping
-    public ResponseEntity<List<UserFetchResponseDTO>> fetchAll() {
+    public ResponseEntity<List<UserFetch_ResponseDTO>> fetchAll() {
         List<UserEntity> users = userService.fetchAllUsers();
-        List<UserFetchResponseDTO> fetchResponseDTOS = users.stream().map(userMapper::toFetchResponseDTO).toList();
+        List<UserFetch_ResponseDTO> fetchResponseDTOS = users.stream().map(userMapper::toFetchResponseDTO).toList();
         return ResponseEntity.ok(fetchResponseDTOS);
     }
 }

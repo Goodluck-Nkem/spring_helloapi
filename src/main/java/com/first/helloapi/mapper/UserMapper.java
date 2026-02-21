@@ -1,14 +1,14 @@
 package com.first.helloapi.mapper;
 
-import com.first.helloapi.dto.UserCreateResponseDTO;
-import com.first.helloapi.dto.UserFetchResponseDTO;
+import com.first.helloapi.dto.user.UserCreate_ResponseDTO;
+import com.first.helloapi.dto.user.UserFetch_ResponseDTO;
 import com.first.helloapi.entity.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserMapper {
-    public UserFetchResponseDTO toFetchResponseDTO(UserEntity user){
-        return new UserFetchResponseDTO(
+    public UserFetch_ResponseDTO toFetchResponseDTO(UserEntity user){
+        return new UserFetch_ResponseDTO(
                 user.getId(),
                 user.getFirstName(),
                 user.getLastName(),
@@ -17,8 +17,8 @@ public class UserMapper {
         );
     }
 
-    public UserCreateResponseDTO toCreateResponseDTO(UserEntity user){
-        return new UserCreateResponseDTO(
+    public UserCreate_ResponseDTO toCreateResponseDTO(UserEntity user){
+        return new UserCreate_ResponseDTO(
                 user.getId()
         );
     }

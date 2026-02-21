@@ -1,11 +1,11 @@
-package com.first.helloapi.dto;
+package com.first.helloapi.dto.user;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.Instant;
 import java.util.UUID;
 
-public record UserFetchResponseDTO(
+public record UserFetch_ResponseDTO(
         UUID id,
         String firstName,
         String lastName,

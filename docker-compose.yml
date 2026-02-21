@@ -2,7 +2,7 @@
 services:
 
   postgres:
-    image: postgres:18
+    image: postgres:16
     container_name: postgres
     environment:
       POSTGRES_DB: helloapi_db
@@ -11,9 +11,17 @@ services:
     ports:
       - "5432:5432"
 
+    # periodic health check, with startup delay for postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helloapi_postgres -d helloapi_db"]
+      interval: 20s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
     # For testing purpose only, to simulate persistence
     volumes:
-      - postgres_volume_data:/var/lib/postgresql
+      - postgres_volume_data:/var/lib/postgresql/data
 
   app:
     build: .
@@ -21,7 +29,8 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
 # For testing purpose only, to simulate persistence
 volumes:

@@ -1,4 +1,4 @@
-package com.first.helloapi.domain;
+package com.first.helloapi.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ import java.util.UUID;
 public class UserEntity {
 
     @Id
-    @UuidGenerator(style = UuidGenerator.Style.TIME)
+    @UuidGenerator(style = UuidGenerator.Style.VERSION_7)
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 

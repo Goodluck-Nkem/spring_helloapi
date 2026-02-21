@@ -2,7 +2,7 @@ package com.first.helloapi.mapper;
 
 import com.first.helloapi.dto.UserCreateResponseDTO;
 import com.first.helloapi.dto.UserFetchResponseDTO;
-import com.first.helloapi.domain.UserEntity;
+import com.first.helloapi.entity.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component

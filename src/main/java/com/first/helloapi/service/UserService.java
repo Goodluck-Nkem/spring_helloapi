@@ -1,8 +1,8 @@
-package com.first.helloapi.persistence.service;
+package com.first.helloapi.service;
 
 import com.first.helloapi.dto.UserCreateRequestDTO;
-import com.first.helloapi.domain.UserEntity;
-import com.first.helloapi.persistence.repository.UserRepository;
+import com.first.helloapi.entity.UserEntity;
+import com.first.helloapi.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

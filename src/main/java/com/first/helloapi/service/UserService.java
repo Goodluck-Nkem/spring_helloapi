@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 import java.util.List;
 
-/* User persistence layer service */
 @Service
 @AllArgsConstructor
 public class UserService {
@@ -19,8 +18,8 @@ public class UserService {
         Instant now = Instant.now();
         UserEntity user = new UserEntity(
                 null,
-                data.firstName().trim(),
-                data.lastName().trim(),
+                data.firstName(),
+                data.lastName(),
                 now,
                 now
         );
